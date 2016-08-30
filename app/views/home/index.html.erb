@@ -1,11 +1,11 @@
 <% @jobs.each do |job| %>
   <article>
     <h1><%= job.title %></h1>
-    <p>
-      <%= job.company %>
-    </p>
-    <p>
-      <%= job.location %>
-    </p>
+    <dl>
+      <dt>Company</dt>
+      <dd><%= job.company %></dd>
+      <dt>Location</dt>
+      <dd><%= job.location %></dd>
+    </dl>
   </article>
 <% end %>
