@@ -1,5 +1,8 @@
 <article>
   <h1><%= @job.title %></h1>
+  <% if @job.featured %>
+    <strong>Vaga em Destaque</strong>
+  <% end %>
   <dl>
     <dt>Categoria</dt>
     <dd><%= @job.category %></dd>

@@ -3,6 +3,9 @@
     <h1>
       <%= link_to job.title, job %>
     </h1>
+    <% if job.featured %>
+      <strong>Vaga em Destaque</strong>
+    <% end %>
     <dl>
       <dt>Company</dt>
       <dd><%= job.company %></dd>

@@ -1,4 +1,4 @@
-<section>  
+<section>
   <h1>Nova Vaga</h1>
 
   <%= form_for @job do |f| %>
@@ -26,6 +26,11 @@
     <div>
       <%= f.label :description, 'Descrição' %>
       <%= f.text_area :description %>
+    </div>
+
+    <div>
+      <%= f.label :featured, 'Vaga em Destaque' %>
+      <%= f.check_box :featured %>
     </div>
 
     <%= f.submit 'Criar Vaga' %>
