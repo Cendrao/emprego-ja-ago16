@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  font-size: 14px;
+}
+
+body{
+  font-size: 1.2em;
+}
+.row{
+
+}
+
+.container{
+  width: 1000px;
+  margin: auto;
+}
+
+.row--border-bottom {
+  border-bottom: 1px solid #000;
+  margin-bottom: 1em;
+}
+
+.form-group + .form-group{
+  margin-top: 1em;
+}
+
+.form-group label, .form-group input{
+  display: inline-block;
+}
+
+.form-group label{
+  width: 30%;
+}
+
+form input[type=submit], form button{
+  margin-top: 1em;
+}
