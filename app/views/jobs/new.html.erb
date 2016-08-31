@@ -23,8 +23,8 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :company, 'Empresa' %>
-      <%= f.text_field :company %>
+      <%= f.label :company_id, 'Empresa' %>
+      <%= f.collection_select( :company_id , @companies, :id, :name) %>
     </div>
 
     <div class="form-group">
