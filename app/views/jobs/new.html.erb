@@ -4,7 +4,11 @@
   <header class="row row--border-bottom">
     <h1>Nova Vaga</h1>
   </header>
-
+  <% if flash[:errors] %>
+    <p>
+      <%= flash[:errors] %>
+    </p>
+  <% end %>
   <%= form_for @job do |f| %>
 
     <div class="form-group">
