@@ -1,11 +1,12 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: [:show, :edit, :update]
+  before_action :set_companies, only: [:new, :edit]
+
   def show
-    @job = Job.find(params[:id])
   end
 
   def new
     @job = Job.new
-    set_companies
   end
 
   def create
@@ -16,6 +17,19 @@ class JobsController < ApplicationController
       set_companies
       flash[:errors] = 'Não foi possível criar a vaga'
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @job.update job_params
+      redirect_to @job
+    else
+      set_companies
+      flash[:errors] = 'Não foi possível atualizar a vaga'
+      render :edit
     end
   end
 
@@ -31,5 +45,8 @@ class JobsController < ApplicationController
     @companies = Company.all
   end
 
+  def set_job
+    @job = Job.find(params[:id])
+  end
 
 end

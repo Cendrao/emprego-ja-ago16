@@ -12,6 +12,11 @@
     <header>
       <h1>Emprego Já</h1>
     </header>
+    <% if flash[:errors] %>
+      <p>
+        <%= flash[:errors] %>
+      </p>
+    <% end %>
     <%= yield %>
   </div>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
