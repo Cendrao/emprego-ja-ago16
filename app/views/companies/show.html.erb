@@ -8,4 +8,17 @@
     <dt>Telefone</dt>
     <dd><%= @company.phone %></dd>
   </dl>
+  <section class="row row--border-bottom">
+    <% if @company.jobs.any? %>
+      <% @company.jobs.each do |job| %>
+
+      <%= render job %>
+
+      <% end %>
+    <% else %>
+      <p>
+        Nenhuma vaga disponível
+      </p>
+    <% end %>
+  </section>
 </article>
