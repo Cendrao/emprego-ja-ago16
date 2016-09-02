@@ -10,14 +10,10 @@
   </dl>
   <section class="row row--border-bottom">
     <% if @company.jobs.any? %>
-      <% @company.jobs.each do |job| %>
-
-      <%= render job %>
-
-      <% end %>
+      <%= render @company.jobs, full_details: false %>
     <% else %>
       <p>
-        Nenhuma vaga disponível
+      Nenhuma vaga disponível
       </p>
     <% end %>
   </section>

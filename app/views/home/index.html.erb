@@ -1,20 +1,5 @@
 <section class="row row--border-bottom">
-  <% @jobs.each do |job| %>
-    <article>
-      <h1>
-        <%= link_to job.title, job %>
-      </h1>
-      <% if job.featured? %>
-        <strong>Vaga em Destaque</strong>
-      <% end %>
-      <dl>
-        <dt>Company</dt>
-        <dd><%= job.company.try(:name) %></dd>
-        <dt>Location</dt>
-        <dd><%= job.location %></dd>
-      </dl>
-    </article>
-  <% end %>
+  <%= render @jobs, full_details: false %>
 </section>
 
 <section class="row row--border-bottom">

@@ -1,8 +1,22 @@
-<dl>
-  <dt>Título</dt>
-  <dd><%= job.title %></dd>
-  <dt>Categoria</dt>
-  <dd><%= job.category %></dd>
-  <dt>Location</dt>
-  <dd><%= job.location %></dd>
-</dl>
+<article>
+  <h1>
+    <%= link_to job.title, job %>
+  </h1>
+  <% if job.featured? %>
+    <strong>Vaga em Destaque</strong>
+  <% end %>
+  <dl>
+    <dt>Empresa</dt>
+    <dd><%= job.company.try(:name) %></dd>
+    <dt>Categoria</dt>
+    <dd><%= job.category %></dd>
+    <dt>Local</dt>
+    <dd><%= job.location %></dd>
+
+    <% if full_details %>
+      <dt>Descrição</dt>
+      <dd><%= job.description %></dd>
+    <% end %>
+
+  </dl>
+</article>
