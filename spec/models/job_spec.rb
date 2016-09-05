@@ -7,6 +7,6 @@ RSpec.describe Job, :type => :model do
     expect(job.errors[:title]).to include("can't be blank")
     expect(job.errors[:location]).to include("can't be blank")
     expect(job.errors[:description]).to include("can't be blank")
-    expect(job.errors[:category]).to include("can't be blank")
+    expect(job.errors[:category_id]).to include("can't be blank")
   end
 end
