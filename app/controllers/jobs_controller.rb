@@ -44,7 +44,6 @@ class JobsController < ApplicationController
   def set_relations
     @companies = Company.all
     @categories = Category.all
-    
   end
 
   def set_job

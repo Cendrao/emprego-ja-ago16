@@ -1,0 +1,12 @@
+<article>
+  <h1><%= @category.name %></h1>
+  <section class="row row--border-bottom">
+    <% if @category.jobs.any? %>
+      <%= render @category.jobs, full_details: false %>
+    <% else %>
+      <p>
+        Nenhuma vaga disponível
+      </p>
+    <% end %>
+  </section>
+</article>
