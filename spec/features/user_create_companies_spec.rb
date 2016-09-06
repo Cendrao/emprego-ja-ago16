@@ -21,4 +21,12 @@ feature 'User create companies' do
     expect(page).to have_content(company.mail)
     expect(page).to have_content(company.phone)
   end
+
+  scenario 'and should fill all fields' do
+    visit new_company_path
+
+    click_on 'Criar Empresa'
+
+    expect(page).to have_content 'Não foi possível criar a Empresa'
+  end
 end
