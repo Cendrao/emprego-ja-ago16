@@ -1,0 +1,25 @@
+<%= form_for(@company) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location, 'Local' %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :mail, 'Email' %>
+    <%= f.text_field :mail %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone, 'Telefone' %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <%= f.submit submit_text %>
+
+<% end %>
