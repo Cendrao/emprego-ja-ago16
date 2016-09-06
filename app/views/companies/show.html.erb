@@ -1,5 +1,8 @@
 <article>
   <h1><%= @company.name %></h1>
+  <% if @company.premium? %>
+    <%= image_tag 'estrela.png' %>
+  <% end %>
   <dl>
     <dt>Local</dt>
     <dd><%= @company.location %></dd>
