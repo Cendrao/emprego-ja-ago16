@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user create categories' do
   scenario 'successfully' do
-    category = Category.new(name: 'DBA')
+    category = create :category
     visit new_category_path
     fill_in 'Nome', with: category.name
     click_on 'Criar Categoria'

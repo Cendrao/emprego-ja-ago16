@@ -2,24 +2,11 @@ require 'rails_helper'
 
 feature 'Visitor view jobs by category' do
   scenario 'successfully' do
-    category = Category.create(name: 'Desenvolvedor Mobile')
+    category = create :category
 
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
+    job = create(:job, category: category)
 
-    job = Job.create(title: 'Dev Master',
-                     location: 'Rio de Janeiro',
-                     company: company,
-                     category: category,
-                     description: 'Vaga para Dev Master para Bootcamp Rails')
-
-    another_job = Job.create(title: 'Dev Java Senior',
-                             location: 'São Paulo',
-                             company: company,
-                             category: category,
-                             description: 'Dev com experiência em Java 8')
+    another_job = create(:job, category: category, title: 'Dev Java')
 
     visit root_path
 
@@ -31,26 +18,14 @@ feature 'Visitor view jobs by category' do
   end
 
   scenario 'and view only the current category jobs' do
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
 
-    category = Category.create(name: 'Desenvolvedor')
+    category = create :category
 
-    job = Job.create(title: 'Dev Master',
-                     location: 'Rio de Janeiro',
-                     company: company,
-                     category: category,
-                     description: 'Vaga para Dev Master para Bootcamp Rails')
+    job = create(:job, category: category)
 
-    another_category = Category.create(name: 'Analista QA')
+    another_category = create(:category, name: 'Analista QA')
 
-    another_job = Job.create(title: 'QA Java Senior',
-                             location: 'São Paulo',
-                             company: company,
-                             category: another_category,
-                             description: 'QA com experiência em Java 8')
+    another_job = create(:job, category: another_category, title: 'Dev Java')
 
     visit root_path
 
@@ -63,7 +38,7 @@ feature 'Visitor view jobs by category' do
   end
 
   scenario 'view a friendly empty message' do
-    category = Category.create(name: 'Gerente')
+    category = create :category
 
     visit root_path
 

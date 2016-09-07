@@ -2,25 +2,14 @@ require 'rails_helper'
 
 feature 'Visitor view jobs by company' do
   scenario 'successfully' do
-    category = Category.create(name: 'Desenvolvedor')
-    category_ux = Category.create(name: 'UX')
+    category = create(:category, name: 'Desenvolvedor')
+    category_ux = create(:category, name: 'UX')
 
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
+    company = create :company
 
-    job = Job.create(title: 'Dev Master',
-                     location: 'Rio de Janeiro',
-                     company: company,
-                     category: category,
-                     description: 'Vaga para Dev Master para Bootcamp Rails')
+    job = create(:job, company: company, category: category)
 
-    another_job = Job.create(title: 'UX Senior',
-                             location: 'São Paulo',
-                             company: company,
-                             category: category_ux,
-                             description: 'UX com experiência em redes sociais')
+    another_job = create(:job, title: 'UX Senior', company: company, category: category_ux)
 
     visit root_path
 
@@ -35,24 +24,14 @@ feature 'Visitor view jobs by company' do
   end
 
   scenario 'and view only the company jobs' do
-    category = Category.create(name: 'Desenvolvedor')
+    category = create(:category, name: 'Desenvolvedor')
 
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
+    company = create :company
 
-    job = Job.create(title: 'Dev Master',
-                     location: 'Rio de Janeiro',
-                     company: company,
-                     category: category,
-                     description: 'Vaga para Dev Master para Bootcamp Rails')
+    job = create(:job, company: company, category: category)
 
+    another_company = create(:company, name: 'Google')
 
-    another_company = Company.create(name: 'Google',
-                                     location: 'São Paulo',
-                                     mail: 'google@gmail.com.br',
-                                     phone: '4444-8888')
     visit root_path
 
     click_on another_company.name
@@ -64,10 +43,7 @@ feature 'Visitor view jobs by company' do
 
 
   scenario 'view a friendly message' do
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
+    company = create :company
 
     visit root_path
 

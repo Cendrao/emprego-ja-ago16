@@ -2,18 +2,11 @@ require 'rails_helper'
 
 feature 'User edit jobs' do
   scenario 'successfully' do
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
+    company = create :company
 
-    category = Category.create(name: 'Desenvolvedor')
+    category = create :category
 
-    job = Job.create(title: 'Vaga de Dev',
-                     category: category,
-                     company: company,
-                     description: 'Dev Junior Rails com ao menos um projeto',
-                     location: 'São Paulo')
+    job = create(:job, company: company, category: category)
 
     visit edit_job_path(job)
 
@@ -31,23 +24,13 @@ feature 'User edit jobs' do
   end
 
   scenario 'and change company' do
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
+    company = create :company
 
-    category = Category.create(name: 'Desenvolvedor')
+    category = create :category
 
-    job = Job.create(title: 'Vaga de Dev',
-                     category: category,
-                     company: company,
-                     description: 'Dev Junior Rails com ao menos um projeto',
-                     location: 'São Paulo')
+    job = create(:job, company: company, category: category)
 
-    google = Company.create(name: 'Google',
-                             location: 'São Paulo',
-                             mail: 'google@gmail.com.br',
-                             phone: '4444-8888')
+    google = create(:company, name: 'Google')
 
     visit edit_job_path(job)
 
@@ -60,18 +43,11 @@ feature 'User edit jobs' do
   end
 
   scenario 'with valid data' do
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
+    company = create :company
 
-    category = Category.create(name: 'Desenvolvedor')
+    category = create :category
 
-    job = Job.create(title: 'Vaga de Dev',
-                     category: category,
-                     company: company,
-                     description: 'Dev Junior Rails com ao menos um projeto',
-                     location: 'São Paulo')
+    job = create(:job, company: company, category: category)
 
     visit edit_job_path(job)
 
